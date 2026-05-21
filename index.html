@@ -255,6 +255,8 @@
       background:linear-gradient(90deg,var(--red),var(--blue));
       transition:.4s;
       box-shadow:0 0 20px rgba(0,207,255,.2);
+      cursor:pointer;
+      display:inline-block;
     }
 
     .btn:hover{
@@ -689,7 +691,7 @@
 
     <div class="hero-image">
 
-      <img src="images/kart-hero.jpg" alt="CRG Kart">
+      <img src="IMG_0031.jpeg" alt="Andrea Del Ciotto - Kart Driver">
 
     </div>
 
@@ -809,13 +811,13 @@
 
     <div class="gallery-grid">
 
-      <img src="images/kart-1.jpg" alt="CRG Kart">
+      <img src="IMG_0138.jpeg" alt="CRG Kart Racing">
 
-      <img src="images/kart-2.jpg" alt="Kart Racing">
+      <img src="IMG_0280.jpeg" alt="Kart Motorsport Action">
 
-      <img src="images/kart-3.jpg" alt="Kart Motorsport">
+      <img src="IMG_0383.jpeg" alt="Racing Performance">
 
-      <img src="images/kart-4.jpg" alt="Racing Kart">
+      <img src="IMG_0384.jpeg" alt="Kart Competition">
 
     </div>
 
@@ -1000,15 +1002,94 @@
 
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.to(".section-title", {
-      scrollTrigger: {
-        trigger: ".section-title",
-        start: "top 80%",
-        end: "top 50%",
-        scrub: 1,
-      },
-      opacity: 1,
-      duration: 1
+    // HERO CONTENT ANIMATION
+
+    gsap.from(".hero-content", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      delay: 2.5
+    });
+
+    gsap.from(".hero-image img", {
+      opacity: 0,
+      x: 100,
+      duration: 1,
+      delay: 2.5
+    });
+
+    // SECTION TITLE ANIMATION
+
+    gsap.utils.toArray(".section-title").forEach(element => {
+      gsap.from(element, {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: element,
+          start: "top 80%"
+        }
+      });
+    });
+
+    // CARD ANIMATION
+
+    gsap.utils.toArray(".card").forEach((card, index) => {
+      gsap.from(card, {
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        delay: index * 0.2,
+        scrollTrigger: {
+          trigger: card,
+          start: "top 80%"
+        }
+      });
+    });
+
+    // GALLERY IMAGE ANIMATION
+
+    gsap.utils.toArray(".gallery-grid img").forEach((img, index) => {
+      gsap.from(img, {
+        opacity: 0,
+        scale: 0.9,
+        duration: 0.8,
+        delay: index * 0.15,
+        scrollTrigger: {
+          trigger: img,
+          start: "top 80%"
+        }
+      });
+    });
+
+    // SOCIAL CARD ANIMATION
+
+    gsap.utils.toArray(".social-card").forEach((card, index) => {
+      gsap.from(card, {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        delay: index * 0.2,
+        scrollTrigger: {
+          trigger: card,
+          start: "top 80%"
+        }
+      });
+    });
+
+    // TIMELINE ANIMATION
+
+    gsap.utils.toArray(".timeline-item").forEach((item, index) => {
+      gsap.from(item, {
+        opacity: 0,
+        x: -50,
+        duration: 0.8,
+        delay: index * 0.15,
+        scrollTrigger: {
+          trigger: item,
+          start: "top 80%"
+        }
+      });
     });
 
   </script>
