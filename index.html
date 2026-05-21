@@ -689,7 +689,7 @@
 
     <div class="hero-image">
 
-      <img src="https://images.unsplash.com/photo-1514644287524-430fffd11caa?q=80&w=1400&auto=format&fit=crop" alt="CRG Kart">
+      <img src="images/kart-hero.jpg" alt="CRG Kart">
 
     </div>
 
@@ -809,13 +809,13 @@
 
     <div class="gallery-grid">
 
-      <img src="https://images.unsplash.com/photo-1514644287524-430fffd11caa?q=80&w=1200&auto=format&fit=crop" alt="CRG Kart">
+      <img src="images/kart-1.jpg" alt="CRG Kart">
 
-      <img src="https://images.unsplash.com/photo-1606611281537-e5c93c9b112e?q=80&w=1200&auto=format&fit=crop" alt="Kart Racing">
+      <img src="images/kart-2.jpg" alt="Kart Racing">
 
-      <img src="https://images.unsplash.com/photo-1599941242206-e44add7b34fe?q=80&w=1200&auto=format&fit=crop" alt="Kart Motorsport">
+      <img src="images/kart-3.jpg" alt="Kart Motorsport">
 
-      <img src="https://images.unsplash.com/photo-1516964712202-7d88fb3ce338?q=80&w=1200&auto=format&fit=crop" alt="Racing Kart">
+      <img src="images/kart-4.jpg" alt="Racing Kart">
 
     </div>
 
@@ -996,64 +996,19 @@
 
     });
 
-    // GSAP
+    // GSAP ANIMATIONS
 
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.from(".hero-content",{
-      opacity:0,
-      y:80,
-      duration:1.5
-    });
-
-    gsap.from(".hero-image",{
-      opacity:0,
-      x:100,
-      duration:1.5
-    });
-
-    gsap.utils.toArray(".card").forEach(card=>{
-
-      gsap.from(card,{
-        scrollTrigger:card,
-        opacity:0,
-        y:60,
-        duration:1
-      });
-
-    });
-
-    gsap.utils.toArray(".timeline-item").forEach(item=>{
-
-      gsap.from(item,{
-        scrollTrigger:item,
-        opacity:0,
-        x:-80,
-        duration:1
-      });
-
-    });
-
-    gsap.utils.toArray(".gallery-grid img").forEach(img=>{
-
-      gsap.from(img,{
-        scrollTrigger:img,
-        opacity:0,
-        scale:.8,
-        duration:1
-      });
-
-    });
-
-    // PARALLAX
-
-    document.addEventListener("mousemove",(e)=>{
-
-      const x = (window.innerWidth - e.pageX * 2) / 100;
-      const y = (window.innerHeight - e.pageY * 2) / 100;
-
-      document.querySelector('.hero-image').style.transform = `translateX(${x}px) translateY(${y}px)`;
-
+    gsap.to(".section-title", {
+      scrollTrigger: {
+        trigger: ".section-title",
+        start: "top 80%",
+        end: "top 50%",
+        scrub: 1,
+      },
+      opacity: 1,
+      duration: 1
     });
 
   </script>
